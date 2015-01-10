@@ -21,3 +21,25 @@ var AppointmentView = Backbone.View.extend({
     $(this.el).html(html);
   }
 })
+
+//Backbone Models
+// to get an attribute
+appointment.get('title') //in this case it will be the 'I have an instance of appointment'
+// to set an attribute
+appointment.set({title: 'backbone needs to be checked'})
+// sync to the server?
+appointment.save();
+
+// to render the appointmentView instance make sure to call the render function
+appointmentView.render();
+
+// our appointment model isn't too useful... lets set some default attributes
+
+var Appointment = Backbone.Model.extend({
+  defaults: function(){
+    return {
+      title: 'Checkup',
+      date: new Date(); // we make this a function to change the date. if it was written as an obj literal, we get every date the same. when the creation of the model happened
+    }
+  }
+})
