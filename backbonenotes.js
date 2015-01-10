@@ -43,3 +43,19 @@ var Appointment = Backbone.Model.extend({
     }
   }
 })
+
+// thus far we have been instantiating the model via object literals and have had not restful routing.
+
+// lets start to instantiate real data from a route.
+
+var Appointment = Backbone.Model.extend({urlRoot: '/appointments'});
+
+// lets make a apt
+var appointment = new Appointment({id: 1})
+
+appointment.fetch(); // get all information on apt
+
+appointment.set({description: 'Funny Bone Hurts'}) //update
+
+appointment.save(); // put /todos/1 with json params
+
