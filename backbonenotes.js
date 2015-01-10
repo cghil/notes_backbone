@@ -16,7 +16,8 @@ var appointmentView = new AppointmentView({ model: appointment}); // to create a
 
 var AppointmentView = Backbone.View.extend({
   render: function(){
-    var html = '<li>'+this.model.get('title')+'</li>'; // i believe this refers to the instance of the model (appointment)
-    $(this)
+    var html = '<li>'+this.model.get('title')+'</li>'; // i believe this refers to the instance of the model (appointment if it is called on appointment)
+    // in the rendering function make sure to tell it where to render. I will be using JQUERY to make these methods easy.
+    $(this.el).html(html);
   }
 })
