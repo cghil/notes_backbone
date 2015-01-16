@@ -59,27 +59,20 @@ appointment.set({description: 'Funny Bone Hurts'}) //update
 
 appointment.save(); // put /todos/1 with json params
 
-// Reviewing Model View Logic
-// View
-var appointmentView = Backbone.View.extend({
-  template: _.template('<span class="<% if(cancelled) print("cancelled") %>">' +
-                        '<%= title %></span>' +
-                        '<a href="#">x</a>'),
-  events: { 'click a' : 'cancel'},
-  initialize: function(){
-    this.model.on('change', this.render, this);
-  },
-  cancel: function(){
-    this.model.cancel();
-  },
-  render: function(){
-    this.$el.html(this.template(this.model.toJSON()));
-  };
+
+// Collections in the view
+
+var Appointment = Backbone.Model.extend({}); //  model class
+
+var AppointmentList = Backbone.Collection.extend({
+  model: Appointment // this tells the collection to include instance of the model (Appointment) inside the collection
 });
 
-// Model
-var Appointment = Backbone.Model.extend({
-  cancel: function(){
-    this.set({cancelled: true});
-  }
-})
+var appointments = new AppointmentList(); // makes an instance of the collection
+
+var AppointmentListView = Backbone.View.extend({}) // view class for the collection
+
+var appointmentListView = new AppointmentListView{ collection: appointments} // noticed that we are passing the instance of our collections.
+
+
+
