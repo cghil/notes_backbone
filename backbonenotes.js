@@ -74,5 +74,26 @@ var AppointmentListView = Backbone.View.extend({}) // view class for the collect
 
 var appointmentListView = new AppointmentListView{ collection: appointments} // noticed that we are passing the instance of our collections.
 
+// Creating a route
+
+// this is a call for the router
+var AppRouter = Backbone.Router.extend({
+  routes: {'appointments/:id': 'show'},
+  show: function(id){
+    console.log('hello we are in the show with id %d', id);
+  }
+
+})
+
+// Start the history using push state
+Backbone.history.start({pushState: true}); // works with IE 10 or above
+
+var router = new AppRouter();
+
+// this is saving the history. to call it using the dom. Use window.history.back();
+// Navigate: Whenever you reach a point in your application that you'd like to save as a URL, 
+// call navigate in order to update the url.
+
+router.navigate('appointments/1', { trigger: true});
 
 
