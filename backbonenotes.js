@@ -94,6 +94,10 @@ var router = new AppRouter();
 // Navigate: Whenever you reach a point in your application that you'd like to save as a URL, 
 // call navigate in order to update the url.
 
-router.navigate('appointments/1', { trigger: true});
+router.navigate('appointments/1', { trigger: true}); // the trigger option allows you to call the route function.
+
+
+
+
 
 
