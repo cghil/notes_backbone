@@ -41,6 +41,11 @@ var todoItem = new TodoItem({
 	todo: {id: 1, description: 'Pick up milk', status: 'incomplete'}, {parse: true};
 });
 
+// tells the json to run through the parse method we had created above
+// when we run the following command
+
+todoItem.attributes;
+
 // Changing Attribute Names in the front end
 
 var todoItem = Backbone.Model.extend({
@@ -75,3 +80,4 @@ var TodoItem = Backbone.Model.extend({
 	}
 })
 
+var TodoItem = Backbo
