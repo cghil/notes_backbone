@@ -101,7 +101,56 @@ view.$el === $(view.el)
 // &
 view.$(selector) === $(view.el).find(selector)
 
-// 
+// we see this in the TodoView example's render method, we see this.$el used to set the HTML of the elemetn and this.$() used to find the subelements of the class edit
+
+// setElement
+// 					e.g. example of setElement
+
+var button1 = $('<button></button>');
+var button2 = $('<button></button>');
+
+var View = Backbone.View.extend({
+	events: {
+		click: function(e){
+			console.log(view.el === e.target);
+		}
+	}
+})
+
+// Create a new instance of the view applying it to the button1
+
+var view = new View({el: button1})
+view.setElement(button2)
+button1.trigger('click');
+button2.trigger('click'); // returns true
+
+// The "el" property represents the markup portion of the view that will be rendered
+//to get he view to actually render to the page, we need to add it as a new element or appen it to an existing element
+
+var view = new Backbone.View;
+
+view.setElement('<p><a><b>test</b></a></p>');
+
+console.log(view$('a b').html()); // outputs "test"
+
+// render() understanding it
+
+// is an optional funciotn that defines the logic for rendering a template. We'll use underscore's microtemplating
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
