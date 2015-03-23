@@ -67,8 +67,41 @@ console.log(todoView.el) // logs <li><li>
 // #2 Or a reference can be made to an element which alread exists in teh page
 
 //How to create a new element for your view?
-	// Set 
+	// Set any combination of the following properties on the OBJLITERAL (on the view)
+	// tagName, id, and className
 
+	// A new element will be created for you by the framework and a reference to it will be available at the el property
+
+var TodosView = Backbone.View.extend({
+	tagName: 'ul', // this is required, defaults to div if not set
+	className: 'container', // optional you can assign multiple classses to this property like so: 'container homepage'
+
+	id: 'todos' // optional
+})
+
+var todosView = new TodosView();
+
+console.log(todosView.el) // i would expect <ul id="todos" class="container"></ul>
+
+//				What if the element already exists on the page?
+// we can set the el as a CSS selector that matches the element within the view factory
+
+var TodosView= Backbone.View.extend({
+	el: '#footer'
+});
+
+// or
+
+// we can set the el to an existing element when creating the view
+
+var todosView = new TodosView({el: $('#footer')}); // notice that this is relies on jquery
+
+// Backbone makes it easy to have view logic via jQuery
+view.$el === $(view.el)
+// &
+view.$(selector) === $(view.el).find(selector)
+
+// 
 
 
 
