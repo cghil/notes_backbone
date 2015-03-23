@@ -137,6 +137,25 @@ console.log(view$('a b').html()); // outputs "test"
 
 // is an optional funciotn that defines the logic for rendering a template. We'll use underscore's microtemplating
 
+// The _.template method in Underscore compiles JavaScript templates into functions which can be evaluated for rendering.
+
+var ListView = Backbone.View.extend({
+	// Compile a template for this view.
+	// is a placeholder for a template such as
+	// $('#list_template').html()
+
+	template: _.template(...)
+	render: function(){
+		this.$el.html(this.template(this.model.attributes));
+		return this;
+	}
+});
+
+
+
+
+
+
 
 
 
